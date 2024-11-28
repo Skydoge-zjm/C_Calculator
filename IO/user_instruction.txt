@@ -1,0 +1,12 @@
+Welcome to the calculator!
+>>> Supported Operator <<<
+        --> + <--
+        --> - <--
+        --> * <--
+        --> / <--
+        --> ^ <--
+      --> exp() <--
+      --> log() <--
+Example
+input:  2*(3+log(exp(4+2)-4)+2^2)
+output: 25.980071
