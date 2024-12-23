@@ -21,7 +21,6 @@ add_executable(Calculator main.c
         Modules/SeqList/SeqList.h
         Modules/SeqList/SeqList.c
         calculate/operator.h
-        IO/input_fromfile.c
         Test/engine.c
         Test/engine.h
 )

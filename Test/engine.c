@@ -15,7 +15,7 @@ typedef struct {
 
 void *process_lines(void *arg) {
     ThreadData *data = (ThreadData *)arg;
-    ThreadResult *result = malloc(sizeof(ThreadResult)); // 用于存储结果
+    ThreadResult *result = malloc(sizeof(ThreadResult));
     result->positive_count = 0;
     result->total_processed = 0;
 
@@ -25,11 +25,11 @@ void *process_lines(void *arg) {
         double result_true = 0.0;
         double result_calculated = 0.0;
 
-        // 读取行中的数据
+        // read
         char *token = strtok(data->lines[i], ",");
         if (token != NULL) {
             strncpy(buffer, token, MAX_BUFFER_SIZE - 1);
-            buffer[MAX_BUFFER_SIZE - 1] = '\0'; // 确保以 null 结尾
+            buffer[MAX_BUFFER_SIZE - 1] = '\0';
         }
 
         token = strtok(NULL, ",");
@@ -62,25 +62,25 @@ void read_and_test_from_file(const char *filename, double *acc) {
         return;
     }
 
-    char *lines[1000];  // 假设文件最多有1000行
+    char *lines[1000];
     int line_count = 0;
 
-    // 读取文件行
+    // read all lines
     char line[MAX_LINE_LENGTH];
     while (fgets(line, sizeof(line), file) && line_count < 1000) {
-        lines[line_count] = strdup(line);  // 复制行内容
+        lines[line_count] = strdup(line);
         line_count++;
     }
     fclose(file);
 
-    // 计算每个线程处理的行数
+    // cal lines per thread
     int lines_per_thread = line_count / MAX_THREADS;
     int remaining_lines = line_count % MAX_THREADS;
 
     pthread_t threads[MAX_THREADS];
     ThreadData thread_data[MAX_THREADS];
 
-    // 创建线程
+    // create thread
     int start = 0;
     for (int i = 0; i < MAX_THREADS; i++) {
         int end = start + lines_per_thread + (i < remaining_lines ? 1 : 0);
@@ -93,7 +93,7 @@ void read_and_test_from_file(const char *filename, double *acc) {
         start = end;
     }
 
-    // 收集线程结果
+    // collect
     int all_threads_total_positive_count = 0;
     int all_threads_total_processed_count = 0;
     for (int i = 0; i < MAX_THREADS; i++) {
@@ -103,12 +103,11 @@ void read_and_test_from_file(const char *filename, double *acc) {
                i, result->positive_count, result->total_processed);
         all_threads_total_positive_count += result->positive_count;
         all_threads_total_processed_count += result->total_processed;
-        free(result); // 释放分配的内存
+        free(result);
     }
     printf("Total positive count: %d\n", all_threads_total_positive_count);
     printf("Total processed count: %d\n", all_threads_total_processed_count);
 
-    // 释放内存
     for (int i = 0; i < line_count; i++) {
         free(lines[i]);
     }
