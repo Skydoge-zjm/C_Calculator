@@ -2,27 +2,42 @@
 
 #include "IO/IO.h"
 #include "calculate/calculate.h"
+#include "Test/engine.h"
 
 
 int calculator_main()
 {
     while (1)
     {
-        printf("Press enter to continue. Press q and enter to quit.\n");
+        int prompt;
 
-        if (getchar() == 'q')
+        printf("Press enter to continue.\nPress t and enter to test.\nPress q and enter to quit.\n");
+        prompt = getchar();
+
+        if (prompt == 't')
+        {
+            getchar();
+            double acc;
+            printf("Start to test from test set\n");
+            read_and_test_from_file(TEST_FILE_PATH, &acc);
+            continue;
+        }
+        else if (prompt == 'q')
         {
             printf("Thanks for using the calculator!\n");
             break;
         }
+        else
+        {
+            char input[MAX_INPUT_LENGTH];
+            read_line(input);
 
-        char input[MAX_INPUT_LENGTH];
-        read_line(input);
+            checkExpressionValidity(input);
 
-        checkExpressionValidity(input);
+            double result = parse_and_calculate(input);
+            printf("Result: %lf\n\n", result);
+        }
 
-        double result = parse_and_calculate(input);
-        printf("Result: %lf\n\n", result);
     }
     return 0;
 }
