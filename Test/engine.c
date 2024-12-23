@@ -99,14 +99,19 @@ void read_and_test_from_file(const char *filename, double *acc) {
     for (int i = 0; i < MAX_THREADS; i++) {
         ThreadResult *result;
         pthread_join(threads[i], (void **)&result);
+        /*
         printf("Thread %d: Positive count = %d, Total processed = %d\n",
                i, result->positive_count, result->total_processed);
+        */
         all_threads_total_positive_count += result->positive_count;
         all_threads_total_processed_count += result->total_processed;
         free(result);
     }
+    /*
     printf("Total positive count: %d\n", all_threads_total_positive_count);
     printf("Total processed count: %d\n", all_threads_total_processed_count);
+    */
+    *acc = (double)all_threads_total_positive_count / all_threads_total_processed_count;
 
     for (int i = 0; i < line_count; i++) {
         free(lines[i]);

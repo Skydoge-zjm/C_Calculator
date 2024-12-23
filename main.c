@@ -19,7 +19,11 @@ int calculator_main()
             getchar();
             double acc;
             printf("Start to test from test set\n");
+
             read_and_test_from_file(TEST_FILE_PATH, &acc);
+
+            printf("acc: %lf\n", acc);
+
             continue;
         }
         else if (prompt == 'q')

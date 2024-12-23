@@ -109,12 +109,6 @@ build CMakeFiles/Calculator.dir/Modules/SeqList/SeqList.c.obj: C_COMPILER__Calcu
   OBJECT_DIR = CMakeFiles\Calculator.dir
   OBJECT_FILE_DIR = CMakeFiles\Calculator.dir\Modules\SeqList
 
-build CMakeFiles/Calculator.dir/IO/input_fromfile.c.obj: C_COMPILER__Calculator_unscanned_Debug E$:/C_project/Calculator/IO/input_fromfile.c || cmake_object_order_depends_target_Calculator
-  DEP_FILE = CMakeFiles\Calculator.dir\IO\input_fromfile.c.obj.d
-  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\Calculator.dir
-  OBJECT_FILE_DIR = CMakeFiles\Calculator.dir\IO
-
 build CMakeFiles/Calculator.dir/Test/engine.c.obj: C_COMPILER__Calculator_unscanned_Debug E$:/C_project/Calculator/Test/engine.c || cmake_object_order_depends_target_Calculator
   DEP_FILE = CMakeFiles\Calculator.dir\Test\engine.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
@@ -129,7 +123,7 @@ build CMakeFiles/Calculator.dir/Test/engine.c.obj: C_COMPILER__Calculator_unscan
 #############################################
 # Link the executable Calculator.exe
 
-build Calculator.exe: C_EXECUTABLE_LINKER__Calculator_Debug CMakeFiles/Calculator.dir/main.c.obj CMakeFiles/Calculator.dir/Error/ErrorCollection.c.obj CMakeFiles/Calculator.dir/IO/user_instruction.c.obj CMakeFiles/Calculator.dir/IO/input_basic.c.obj CMakeFiles/Calculator.dir/IO/input_validity_check.c.obj CMakeFiles/Calculator.dir/calculate/calculate.c.obj CMakeFiles/Calculator.dir/calculate/operator.c.obj CMakeFiles/Calculator.dir/Modules/SeqStack/SeqStack.c.obj CMakeFiles/Calculator.dir/Modules/DataType/DataType.c.obj CMakeFiles/Calculator.dir/Modules/SeqList/SeqList.c.obj CMakeFiles/Calculator.dir/IO/input_fromfile.c.obj CMakeFiles/Calculator.dir/Test/engine.c.obj
+build Calculator.exe: C_EXECUTABLE_LINKER__Calculator_Debug CMakeFiles/Calculator.dir/main.c.obj CMakeFiles/Calculator.dir/Error/ErrorCollection.c.obj CMakeFiles/Calculator.dir/IO/user_instruction.c.obj CMakeFiles/Calculator.dir/IO/input_basic.c.obj CMakeFiles/Calculator.dir/IO/input_validity_check.c.obj CMakeFiles/Calculator.dir/calculate/calculate.c.obj CMakeFiles/Calculator.dir/calculate/operator.c.obj CMakeFiles/Calculator.dir/Modules/SeqStack/SeqStack.c.obj CMakeFiles/Calculator.dir/Modules/DataType/DataType.c.obj CMakeFiles/Calculator.dir/Modules/SeqList/SeqList.c.obj CMakeFiles/Calculator.dir/Test/engine.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Calculator.dir
